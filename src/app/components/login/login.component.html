@@ -1,0 +1,47 @@
+<div class="main" *ngIf="!spinner">
+  <form [formGroup]="login" (submit)="submit(login.value)">
+    <div class="header">
+      <h3>Login</h3>
+    </div>
+    <div class="container">
+      <div class="username">
+        <label class="label">UserName</label>
+        <input
+          [class.is-invalid]="username?.invalid && username?.touched"
+          formControlName="username"
+          class="inp"
+          type="text"
+        />
+        <div *ngIf="username?.invalid && username?.touched">
+          <small class="text-danger" *ngIf="username?.errors?.['required']">
+            Username is required
+          </small>
+        </div>
+      </div>
+      <div class="username">
+        <label class="label">Password</label>
+        <input
+          [class.is-invalid]="password?.invalid && password?.touched"
+          formControlName="password"
+          class="inp"
+          type="password"
+        />
+        <div *ngIf="password?.invalid && password?.touched">
+          <small class="text-danger" *ngIf="password?.errors?.['required']">
+            Password is required
+          </small>
+        </div>
+      </div>
+    </div>
+    <button
+      [disabled]="!login.valid"
+      class="btn"
+      mat-raised-button
+      color="accent"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
+<mat-spinner class="spinner" *ngIf="spinner"></mat-spinner>

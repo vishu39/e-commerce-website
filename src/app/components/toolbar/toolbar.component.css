@@ -1,0 +1,26 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  height: 15rem;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+.first {
+  display: flex;
+}
+.btn {
+  background: transparent;
+}
+.mat {
+  color: white;
+}
+.head {
+  display: flex;
+  align-items: center;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}

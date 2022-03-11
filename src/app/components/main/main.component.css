@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  width: 100%;
+  font-size: 1.3rem;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.first {
+  width: 100%;
+}
+.second {
+  margin-top: 5rem;
+  width: 100%;
+}
+@media screen and (min-width: 650px) {
+  .container {
+    font-size: 1.5rem;
+  }
+}

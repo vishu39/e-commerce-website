@@ -1,0 +1,16 @@
+<mat-toolbar class="toolbar">
+  <span class="first">
+    <span class="head">
+      <mat-icon class="headicon">weekend</mat-icon>
+      <h1 routerLink="/main">Grabbers</h1>
+    </span>
+  </span>
+  <span>
+    <button mat-flat-button type="button" class="btn" routerLink="/cart">
+      <mat-icon class="mat" [matBadge]="noOfProduct" matBadgeSize="small"
+        >shopping_cart</mat-icon
+      >
+    </button>
+    <button mat-flat-button (click)="logout()">Logout</button>
+  </span>
+</mat-toolbar>

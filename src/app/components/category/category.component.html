@@ -1,0 +1,10 @@
+<div class="main">
+  <button class="btn" mat-flat-button (click)="home()">
+    <mat-icon>home</mat-icon>
+  </button>
+  <span class="bottom" *ngFor="let cat of categories">
+    <button class="btn" (click)="category(cat)" type="button">
+      {{ cat | titlecase }}
+    </button>
+  </span>
+</div>

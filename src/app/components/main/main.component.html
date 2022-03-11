@@ -1,0 +1,15 @@
+<mat-spinner class="spinner" *ngIf="!spinner">Loading</mat-spinner>
+<div class="container" *ngIf="spinner">
+  <app-category
+    class="first"
+    [categories]="categories"
+    (catButton)="catButton($event)"
+    (homeButton)="home()"
+  ></app-category>
+  <app-all-products
+    class="second"
+    [products]="allProducts"
+    [item]="item"
+    (addtoCart)="addToCart($event)"
+  ></app-all-products>
+</div>
