@@ -26,11 +26,7 @@ export class MainComponent implements OnInit {
     this.getCategories();
     this.productService.getProducts();
     this.getProducts();
-    this.item = +this.cartService.Length;
-    // this.loginService.getLogin();
   }
-
-  //for toolbar
 
   //For category component
 
@@ -70,15 +66,10 @@ export class MainComponent implements OnInit {
     });
   }
 
-  getItemLength() {
-    this.item = +this.cartService.Length + 1;
-  }
-
   home() {
     this.allProducts = this.products;
   }
   addToCart(event) {
-    this.getItemLength();
     this.cartService.addToCart(event);
   }
 }

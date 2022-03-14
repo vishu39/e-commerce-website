@@ -6,26 +6,22 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   cartList: any = [];
-  // length: BehaviorSubject<any> = new BehaviorSubject('');
+  Product: BehaviorSubject<any> = new BehaviorSubject([]);
   constructor() {}
 
-  get Product() {
-    return localStorage.getItem('cartItem');
-  }
-  get Length() {
-    return localStorage.getItem('cartLength');
+  getProduct() {
+    let storedItem = localStorage.getItem('cartItem');
+    this.Product.next(JSON.parse(storedItem));
   }
 
   setProduct(product: any) {
     this.cartList.push(product);
     localStorage.setItem('cartItem', JSON.stringify(product));
-    // this.length.next(product);
   }
   addToCart(product: any) {
     this.cartList.push(product);
     localStorage.setItem('cartItem', JSON.stringify(this.cartList));
-    localStorage.setItem('cartLength', this.cartList.length);
-    // this.length.next(this.cartList);
+    this.getProduct();
     this.getPriceTotal();
   }
   getPriceTotal() {
@@ -42,13 +38,11 @@ export class CartService {
       }
     });
     localStorage.setItem('cartItem', JSON.stringify(this.cartList));
-    localStorage.setItem('cartLength', this.cartList.length);
-    // this.length.next(this.cartList);
+    this.getProduct();
   }
   clearAll() {
     this.cartList = [];
     localStorage.setItem('cartItem', JSON.stringify(this.cartList));
-    localStorage.setItem('cartLength', this.cartList.length);
-    // this.length.next(this.cartList);
+    this.getProduct();
   }
 }
