@@ -6,7 +6,7 @@
   font-size: 1rem;
 }
 table {
-  width: 30%;
+  width: 100%;
   text-align: left;
   border: 1px solid black;
 }
@@ -32,7 +32,7 @@ th {
 .footer {
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 100%;
 }
 .btn {
   margin: 0 1.8rem;

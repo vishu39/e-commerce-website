@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AllproductService {
   spinner: boolean = false;
   product: BehaviorSubject<any> = new BehaviorSubject([]);
+  singleProduct: BehaviorSubject<any> = new BehaviorSubject({});
 
   url = 'https://fakestoreapi.com/products';
 
@@ -17,7 +18,13 @@ export class AllproductService {
     this.Http.get(this.url).subscribe((product) => {
       this.spinner = true;
       this.product.next(product);
-      // this.product.next(success);
+    });
+  }
+
+  getSingleProduct(url) {
+    this.Http.get(url).subscribe((product) => {
+      this.spinner = true;
+      this.singleProduct.next(product);
     });
   }
 }

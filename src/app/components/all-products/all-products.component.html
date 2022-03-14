@@ -1,6 +1,10 @@
 <div class="card">
   <mat-card *ngFor="let product of products" class="example-card">
-    <mat-card-header class="header">
+    <mat-card-header
+      class="header"
+      routerLink="/product-details"
+      [queryParams]="{ id: product.id, title: product.title }"
+    >
       <img class="image" src="{{ product.image }}" />
     </mat-card-header>
     <mat-card-content class="bottom">

@@ -1,0 +1,40 @@
+<mat-spinner class="spinner" *ngIf="!spinner"></mat-spinner>
+<div class="center" *ngIf="spinner">
+  <div class="details">
+    <img class="image" src="{{ productDetails.image }}" />
+    <span class="second">
+      <p><b>Name:</b>{{ productDetails?.title }}</p>
+      <hr />
+      <p><b>Category:</b>{{ productDetails?.category }}</p>
+      <hr />
+      <p><b>Description:</b>{{ productDetails?.description }}</p>
+      <hr />
+      <p><b>Price:</b>{{ productDetails?.price }}</p>
+      <hr />
+      <p><b>Count:</b>{{ productDetails?.rating?.count }}</p>
+      <hr />
+      <p><b>Rating:</b>{{ productDetails?.rating?.rate }}</p>
+      <hr />
+    </span>
+  </div>
+  <div class="action">
+    <button
+      type="button"
+      class="btn"
+      mat-flat-button
+      color="primary"
+      (click)="addToCart(productDetails)"
+    >
+      Add to cart
+    </button>
+    <button
+      type="button"
+      class="btn"
+      mat-flat-button
+      color="warn"
+      routerLink="/main"
+    >
+      Back
+    </button>
+  </div>
+</div>

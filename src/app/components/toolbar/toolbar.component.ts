@@ -17,7 +17,7 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getProduct();
     this.cartService.Product.subscribe((res) => {
-      this.noOfProduct = res.length;
+      this.noOfProduct = res?.length;
     });
   }
 

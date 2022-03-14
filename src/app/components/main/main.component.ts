@@ -25,6 +25,7 @@ export class MainComponent implements OnInit {
     this.cateoryService.getCategories();
     this.getCategories();
     this.productService.getProducts();
+    this.cartService.getItem();
     this.getProducts();
   }
 
