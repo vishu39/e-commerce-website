@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
-  cartList: any = [];
+  itemsArray: any = [];
   Product: BehaviorSubject<any> = new BehaviorSubject([]);
   constructor() {}
 
@@ -13,7 +13,7 @@ export class CartService {
     this.Product.next(JSON.parse(localStorage.getItem('cartItem')));
   }
   getItem() {
-    this.cartList = JSON.parse(localStorage.getItem('cartItem'));
+    this.itemsArray = JSON.parse(localStorage.getItem('cartItem'));
   }
 
   setProduct(product: any) {
@@ -21,8 +21,8 @@ export class CartService {
   }
 
   addingItemToCart(item: any) {
-    this.cartList.push(item);
-    this.setProduct(this.cartList);
+    this.itemsArray.push(item);
+    this.setProduct(this.itemsArray);
     this.getProduct();
     this.getAllItemTotal();
   }
@@ -37,18 +37,18 @@ export class CartService {
   }
 
   deleteItemFromCart(item: any) {
-    this.cartList.filter((a: any, index: any) => {
+    this.itemsArray.filter((a: any, index: any) => {
       if (item.id === a.id) {
-        this.cartList.splice(index, 1);
+        this.itemsArray.splice(index, 1);
       }
     });
-    this.setProduct(this.cartList);
+    this.setProduct(this.itemsArray);
     this.getProduct();
   }
 
   clearAllItemFromCart() {
-    this.cartList = [];
-    this.setProduct(this.cartList);
+    this.itemsArray = [];
+    this.setProduct(this.itemsArray);
     this.getProduct();
   }
 }
