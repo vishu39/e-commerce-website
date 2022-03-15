@@ -20,14 +20,14 @@ export class CartService {
     localStorage.setItem('cartItem', JSON.stringify(product));
   }
 
-  addToCart(product: any) {
-    this.cartList.push(product);
+  addingItemToCart(item: any) {
+    this.cartList.push(item);
     this.setProduct(this.cartList);
     this.getProduct();
-    this.getPriceTotal();
+    this.getAllItemTotal();
   }
 
-  getPriceTotal() {
+  getAllItemTotal() {
     let total = 0;
     let array = JSON.parse(localStorage.getItem('cartItem'));
     array.map((m) => {
@@ -36,9 +36,9 @@ export class CartService {
     return total;
   }
 
-  deleteItem(product: any) {
+  deleteItemFromCart(item: any) {
     this.cartList.filter((a: any, index: any) => {
-      if (product.id === a.id) {
+      if (item.id === a.id) {
         this.cartList.splice(index, 1);
       }
     });
@@ -46,7 +46,7 @@ export class CartService {
     this.getProduct();
   }
 
-  clearAll() {
+  clearAllItemFromCart() {
     this.cartList = [];
     this.setProduct(this.cartList);
     this.getProduct();

@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.getProduct();
-    this.cartService.getPriceTotal();
+    this.cartService.getAllItemTotal();
     this.cartService.getItem();
     this.getCartProduct();
   }
@@ -31,16 +31,16 @@ export class CartComponent implements OnInit {
     this.cartService.Product.subscribe((res) => {
       this.products = res;
     });
-    this.grandTotal = this.cartService.getPriceTotal();
+    this.grandTotal = this.cartService.getAllItemTotal();
   }
 
   removeItem(product: any) {
-    this.cartService.deleteItem(product);
+    this.cartService.deleteItemFromCart(product);
     this.getCartProduct();
   }
 
   clearAll() {
-    this.cartService.clearAll();
+    this.cartService.clearAllItemFromCart();
     this.getCartProduct();
   }
   shopMore() {

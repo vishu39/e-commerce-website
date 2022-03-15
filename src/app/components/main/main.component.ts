@@ -71,6 +71,6 @@ export class MainComponent implements OnInit {
     this.allProducts = this.products;
   }
   addToCart(event) {
-    this.cartService.addToCart(event);
+    this.cartService.addingItemToCart(event);
   }
 }

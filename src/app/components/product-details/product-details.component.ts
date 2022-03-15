@@ -25,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
     this.allProduct.getSingleProduct(this.url);
     this.fetchProductDetails();
     this.cartService.getItem();
-    this.cartService.getPriceTotal();
+    this.cartService.getAllItemTotal();
   }
   getParams() {
     this.route.queryParamMap.subscribe((qparam) => {
@@ -43,6 +43,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);
+    this.cartService.addingItemToCart(product);
   }
 }
